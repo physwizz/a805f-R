@@ -312,8 +312,10 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/x86/ -e s/x86_64/x86/ \
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 
 ARCH		?=arm64
-CROSS_COMPILE	?=../PLATFORM/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+# CROSS_COMPILE	?=../PLATFORM/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
+#CROSS_COMPILE=/home/grahame/toolchains/Toolchains-for-Eureka-GCC-4.9/bin/aarch64-linux-android-
+CROSS_COMPILE=/home/grahame/toolchains/aarch64-linux-android-4.9-master/bin/aarch64-linux-android-
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
 SRCARCH 	:= $(ARCH)
@@ -379,7 +381,10 @@ endif
 AS		= $(CROSS_COMPILE)as
 LD		= $(CROSS_COMPILE)ld
 #REAL_CC		= $(CROSS_COMPILE)gcc
-REAL_CC		= $(srctree)/toolchain/llvm-arm-toolchain-ship/8.0/bin/clang
+# REAL_CC		= $(srctree)/toolchain/llvm-arm-toolchain-ship/8.0/bin/clang
+
+REAL_CC=/home/grahame/toolchains/llvm-arm-toolchain-ship-10.0-master/bin/clang
+
 LDGOLD		= $(CROSS_COMPILE)ld.gold
 CPP		= $(CC) -E
 AR		= $(CROSS_COMPILE)ar
